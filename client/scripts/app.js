@@ -9,7 +9,7 @@ let app = {
   
   send: function(message) {
     $.ajax({
-      url: 'http://parse.opspark.hackreactor.com', 
+      url: 'http://parse.opspark.hackreactor.com/chatterbox/classes/message', 
       type: 'POST',
       data: JSON.stringify(message)
     });
@@ -22,11 +22,12 @@ let app = {
   },
 
   clearMessages: function() {
-    $('#chats').children()
+    $('#chats').empty();
   },
 
-  renderMessage: function() {
-
+  renderMessage: function(message) {
+    //turn string into a DOM element
+    $('#chats').append();
   },
 
   renderRoom: function(room) {
