@@ -6,6 +6,8 @@ let app = {
     $('.submit').on('click', app.handleSubmit);
     $('.submit').on('submit', app.handleSubmit);
     app.user = window.location.search.slice(10);
+    setInterval(function() { 
+      app.fetch(); }, 1000);
   },
   server: 'http://parse.opspark.hackreactor.com/chatterbox/classes/messages',  
   send: function(message) {
@@ -34,7 +36,9 @@ let app = {
     $.ajax({
       url: app.server,
       type: 'GET',
-      success: function(data) {
+      data: {order: '-createdAt'}, 
+      success: function(data) { 
+        app.clearMessages();
         data.results.forEach(e => {  
           app.renderMessage(e);
         });
@@ -50,10 +54,13 @@ let app = {
     }    
   },
   friends: [],
-  renderMessage: function(message) {
-    let name = message.username;
-    let text = message.text;    
-    $('#chats').append(`<div id = ${name} class = "msg username">${name}: ${text} </div>`);
+  renderMessage: function(message) {    
+    if (message.text.includes('<')) {      
+    } else {
+      let name = message.username;
+      let text = message.text;      
+      $('#chats').append(`<div id = ${name} class = "msg username">${name}: ${text} </div>`);      
+    }
   },
 
   renderRoom: function(room) {
