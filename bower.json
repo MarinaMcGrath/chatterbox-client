@@ -17,10 +17,17 @@
     "node_modules",
     "bower_components",
     "test",
+<<<<<<< HEAD
     "tests",
     "env"
   ],
   "resolutions": {
     "underscore": "^1.8.3"
+=======
+    "tests"
+  ],
+  "resolutions": {
+    "underscore": "~1.7.0"
+>>>>>>> 6f3895042aad991ed7e44afd1d9eacdc6c6d2c4d
   }
 }
