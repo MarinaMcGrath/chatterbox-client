@@ -27,11 +27,14 @@
   <body>
     <div id="main">
       <h1>Chatterbox</h1>
-
-      Message:<br>
-      <input type="text" name="message" id="message"></input>
+      <input type="text" name="message" id="message" placeholder = 'message goes here'></input>
       <button type="button" class="btn btn-outline-info submit">Submit</button>
-    </div>
+      <input type="text" name="message" id="room" placeholder = 'room goes here'></input>
+      <button type="button" id = 'roomSubmit' class="btn btn-outline-info submit">CreateRoom</button>
+      <select class='roomSelect'>
+        <option id ='lobby' value = 'lobby'>Lobby</option>
+      </select>
+      </div>
       <div id="chats"></div>   
     <script src="env/config.js"></script>
     <script src="scripts/app.js"></script>         
